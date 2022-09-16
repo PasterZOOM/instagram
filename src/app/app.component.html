@@ -1,1 +1,14 @@
-<inst-login></inst-login>
+<nav>
+  <a
+    class="button"
+    routerLinkActive="activeButton"
+    routerLink=""
+    [routerLinkActiveOptions]="{ exact: true }"
+    >Home</a
+  >
+  <a class="button" routerLinkActive="activeButton" routerLink="/login">Login</a>
+  <a class="button" routerLinkActive="activeButton" routerLink="/todos">Todos</a>
+  <a class="button" routerLinkActive="activeButton" routerLink="/users">Users</a>
+  <a class="button" routerLinkActive="activeButton" routerLink="/profile">Profile</a>
+</nav>
+<router-outlet></router-outlet>
