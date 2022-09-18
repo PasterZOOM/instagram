@@ -10,7 +10,7 @@ import { PageNoteFoundComponent } from 'src/app/components/page-note-found/page-
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile/:userId', component: ProfileComponent },
   { path: 'todos', component: TodosComponent },
   { path: 'users', component: UsersComponent },
   { path: '404', component: PageNoteFoundComponent },
