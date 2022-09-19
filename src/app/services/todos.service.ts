@@ -11,17 +11,11 @@ import { BeautyLoggerService } from 'src/app/services/beauty-logger.service'
 export class TodosService {
   todos$ = new BehaviorSubject<Todo[]>([])
 
-  httpOptions = {
-    withCredentials: true,
-    headers: {
-      'API-KEY': environment.apiKey,
-    },
-  }
   constructor(private http: HttpClient, private beautyLoggerService: BeautyLoggerService) {}
 
   getTodos() {
     this.http
-      .get<Todo[]>(`${environment.baseUrl}/todo-lists`, this.httpOptions)
+      .get<Todo[]>(`${environment.baseUrl}/todo-lists`)
       .pipe(catchError(this.errorHandle.bind(this)))
       .subscribe(todos => {
         this.todos$.next(todos)
@@ -30,11 +24,7 @@ export class TodosService {
 
   createTodo(title: string) {
     this.http
-      .post<BaseResponse<{ item: Todo }>>(
-        `${environment.baseUrl}/todo-lists`,
-        { title },
-        this.httpOptions
-      )
+      .post<BaseResponse<{ item: Todo }>>(`${environment.baseUrl}/todo-lists`, { title })
       .pipe(
         map(res => {
           if (res.resultCode === 0) return [res.data.item, ...this.todos$.getValue()]
@@ -49,7 +39,7 @@ export class TodosService {
 
   deleteTodo(todoId: string) {
     this.http
-      .delete<BaseResponse>(`${environment.baseUrl}/todo-lists/${todoId}`, this.httpOptions)
+      .delete<BaseResponse>(`${environment.baseUrl}/todo-lists/${todoId}`)
       .pipe(
         map(res => {
           if (res.resultCode === 0) return this.todos$.getValue().filter(t => t.id !== todoId)
