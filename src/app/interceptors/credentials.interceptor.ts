@@ -11,13 +11,6 @@ import { environment } from 'src/environments/environment.prod'
 
 @Injectable()
 export class CredentialsInterceptor implements HttpInterceptor {
-  httpOptions = {
-    withCredentials: true,
-    headers: {
-      'API-KEY': environment.apiKey,
-    },
-  }
-
   constructor() {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
