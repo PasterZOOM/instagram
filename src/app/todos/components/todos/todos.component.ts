@@ -1,19 +1,7 @@
 import { Component, OnInit } from '@angular/core'
-import { TodosService } from 'src/app/services/todos.service'
+import { TodosService } from 'src/app/todos/services/todos.service'
 import { Observable } from 'rxjs'
-
-export interface Todo {
-  addedDate: string
-  id: string
-  order: number
-  title: string
-}
-export interface BaseResponse<T = {}> {
-  data: T
-  messages: string[]
-  fieldsErrors: string[]
-  resultCode: number
-}
+import { Todo } from 'src/app/todos/models/todos.model'
 
 @Component({
   selector: 'inst-todos',

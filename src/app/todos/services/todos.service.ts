@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core'
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'
-import { BaseResponse, Todo } from 'src/app/components/todos/todos.component'
 import { BehaviorSubject, catchError, map, EMPTY } from 'rxjs'
 import { environment } from 'src/environments/environment'
-import { BeautyLoggerService } from 'src/app/services/beauty-logger.service'
+import { BeautyLoggerService } from 'src/app/core/services/beauty-logger.service'
+import { Todo } from 'src/app/todos/models/todos.model'
+import { BaseResponse } from 'src/app/core/models/core.model'
 
 @Injectable({
   providedIn: 'root',

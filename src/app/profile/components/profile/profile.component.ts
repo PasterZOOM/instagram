@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
-import { ProfileResponse, ProfileService } from 'src/app/services/profile.service'
+import { ProfileService } from 'src/app/profile/services/profile.service'
 import { Observable } from 'rxjs'
+import { ProfileResponse } from 'src/app/profile/models/profile.model'
 
 @Component({
   selector: 'inst-profile',
